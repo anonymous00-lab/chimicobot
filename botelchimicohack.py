@@ -5,7 +5,7 @@ from datetime import datetime
 
 # --- CONFIGURAZIONE ---
 # Incolla il tuo token tra le virgolette singole qui sotto
-TOKEN = 'DISCORD_TOKEN'
+TOKEN = os.getenv('DISCORD_TOKEN')
 LOG_CHANNEL_ID = 1477804866385481778 
 ROLE_TO_WATCH = "verificato"
 # ----------------------
@@ -83,5 +83,6 @@ async def on_member_update(before, after):
             embed.set_footer(text=f"Analisi n. 36 | Sentinel OS v21.0 • {datetime.now().strftime('%H:%M')}")
 
             await log_channel.send(embed=embed)
+
 
 bot.run(TOKEN)
